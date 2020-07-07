@@ -1,0 +1,100 @@
+{
+  "id": "1929615",
+  "name": "ax",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "356474",
+      "name": "书",
+      "font_class": "shu",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "1049942",
+      "name": "向右",
+      "font_class": "xiangyou",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "2131459",
+      "name": "文化",
+      "font_class": "wenhua",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
+      "icon_id": "2205713",
+      "name": "地图，坐标，定位",
+      "font_class": "mappinmarker",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    },
+    {
+      "icon_id": "5979984",
+      "name": "汉堡菜单折叠",
+      "font_class": "hanbaocaidanzhedie",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "6884486",
+      "name": "向下",
+      "font_class": "xiangxia",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "7310412",
+      "name": "向下",
+      "font_class": "xiangxia1",
+      "unicode": "e74a",
+      "unicode_decimal": 59210
+    },
+    {
+      "icon_id": "7351521",
+      "name": "地图，位置，定位",
+      "font_class": "huabankaobei-",
+      "unicode": "e67a",
+      "unicode_decimal": 59002
+    },
+    {
+      "icon_id": "7550196",
+      "name": "叉",
+      "font_class": "cha",
+      "unicode": "e687",
+      "unicode_decimal": 59015
+    },
+    {
+      "icon_id": "8843484",
+      "name": "折叠",
+      "font_class": "zhedie",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "8843671",
+      "name": "向右",
+      "font_class": "xiangyou1",
+      "unicode": "e648",
+      "unicode_decimal": 58952
+    },
+    {
+      "icon_id": "9512529",
+      "name": "叉",
+      "font_class": "cross-fill",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "15726752",
+      "name": "地图定位",
+      "font_class": "ditudingwei",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    }
+  ]
+}

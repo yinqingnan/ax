@@ -1,23 +1,25 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import Home from '../views/Home'
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
   const routes = [
   {
     path: '/',
-    name: 'home',
-    // redirect:'/home',
+    // name: 'home',
+    redirect:'/index/appendix',
     // component: Home
-    component: ()=> import('@/views/Home')
+    component: ()=> import('../views/Home/Home.vue')
   },
-  // {
-  //   path: '/about',
-  //   name: 'About',
-  //   component: function () {
-  //     return import(/* webpackChunkName: "about" */ '../views/About.vue')
-  //   }
-  // }
+    {
+      path: '/index',
+      name: 'home',
+      // component: Home
+      component: ()=> import('../views/Home/Home.vue'),
+      children :[
+        {path:'/index/appendix',name:'Appendix',component:()=> import('../views/Home/children/appendix.vue')}
+      ]
+    },
+ 
 ]
 
 const router = new VueRouter({
