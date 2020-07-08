@@ -8,7 +8,7 @@
     </swiper>
     <div class="nav">
       <ul>
-        <li v-for="(item,index) in navimgList" :key="index" :style="{backgroundImage: 'url(' + item.src + ')', backgroundSize:'100% 100%'}" v-show="index < 2" ></li>
+        <li v-for="(item,index) in navimgList" :key="index" :style="{backgroundImage: 'url(' + item.src + ')', backgroundSize:'100% 100%'}" v-show="index < 3"  @click="mainnav(index)"></li>
       </ul>
     </div>
     <div class="news">
@@ -18,10 +18,15 @@
         <li v-for="(item,index) in newstext" :key="index" @click="newsswitch(index)" >
           <h1 :class="{active: index === num}">{{item.text}}</h1>
         </li>
+        
       </ul>
+      <div>
+        <h2 @click="more">查看更多</h2>
+
+      </div>
     </div>
     <ul class="footer">
-      <li class="footer_nav">
+      <li class="footer_nav" @click="listbtn('集团文化')">
         <div>
             <p>
               <span class="iconfont icon-wenhua"></span>
@@ -31,7 +36,7 @@
        
         <span class="iconfont icon-xiangyou"></span>
       </li>
-      <li class="footer_nav">
+      <li class="footer_nav" @click="listbtn('全球发布')">
         <div>
             <span class="iconfont icon-ditudingwei" style="font-size: 22px;margin-right: 1px;margin-left: 5px;"></span>
             全球发布
@@ -95,7 +100,7 @@ export default {
       },
       navimgList: [
         { id: 1, src: require("@/assets/img/jk.png"),path:'jkgl' },
-        { id: 2, src: require("@/assets/img/tz.png"),path:'jdgl' },
+        { id: 2, src: require("@/assets/img/gp.png"),path:'jdgl' },
         { id: 3, src: require("@/assets/img/gj.png"),path:'gjly' },
         // { id: 4, src: require("@/assets/img/dz.png"),path:'dzsw' },
         // { id: 5, src: require("@/assets/img/tz.png"),path:'tzgl' },
@@ -120,13 +125,43 @@ export default {
       console.log(id)
     },
     newsswitch (index) {
-      console.log(index)
       this.num = index
+    },
+    more () {
+      switch (this.num) {
+        case 0:
+            console.log('集团新闻')
+          break;
+        case 1:
+            console.log('媒体报道')
+          break;
+          case 2:
+            console.log('热点专题')
+          break;
+        default:
+          break;
+      }
+    },
+    listbtn (name) {
+      switch (name) {
+        case "集团文化":
+          console.log('集团文化')
+          break;
+        case "全球发布":
+          console.log('全球发布')
+          break;
+        default:
+          break;
+      }
+    },
+    mainnav (i) {
+      console.log(i)
     }
   },
 };
 </script>
-<style lang="stylus">
+ 
+<style lang="stylus" scoped>
 .swiper-pagination-bullet-active {
   background-color: #fcfdf7
 }
@@ -157,7 +192,7 @@ export default {
     display: flex;
     justify-content: space-between;
     div{
-      width 40%
+      width 50%
       color: #fff;
       font-size: 20px;
       letter-spacing: .7px;
@@ -217,6 +252,21 @@ export default {
     text-align center
     line-height 28px
     letter-spacing .7px
+    
+  }
+  >div{
+    text-align center
+    padding 28px 0 48px
+    
+    >h2{
+      display inline-block
+      padding 7px 26px
+      border 1px solid #979797
+      color #333
+      font-size 12px
+      line-height 17px
+    }
+  
   }
   >p{
     color #2f2f2f
@@ -227,7 +277,7 @@ export default {
   >ul{
     display flex
     width 100%
-    border 1px solid #e8e8e8
+    border-bottom 1px solid #e8e8e8
     >li{
       width 33.3%
       margin 0 auto 
@@ -236,6 +286,7 @@ export default {
         text-align center
         padding: 16px 0 11px;
         width 66px
+        margin: 0 30px;
       }
     }
   }
