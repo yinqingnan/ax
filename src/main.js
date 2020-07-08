@@ -8,6 +8,11 @@ import "./assets/fonts/iconfont.css"
 
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css';
+
+import { Button } from 'vant';
+import 'vant/lib/button/style';
+Vue.use(Button)
+
 Vue.use(VueAwesomeSwiper)
 Vue.config.productionTip = false;
 

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="overflow:hidden">
     <swiper :options="swiperOption" ref="mySwiper">
       <swiper-slide class="swiper-slide games" v-for="item in imglist" :key="item.id" style="min-height:156px" :style="{backgroundImage: 'url(' + item.src + ')', backgroundSize:'100% 100%'}">
 
@@ -8,11 +8,17 @@
     </swiper>
     <div class="nav">
       <ul>
-        <li v-for="item in navimgList" :key="item.id" :style="{backgroundImage: 'url(' + item.src + ')', backgroundSize:'100% 100%'}"></li>
+        <li v-for="(item,index) in navimgList" :key="index" :style="{backgroundImage: 'url(' + item.src + ')', backgroundSize:'100% 100%'}" v-show="index < 2" ></li>
       </ul>
     </div>
     <div class="news">
-      
+      <h1>新闻中心</h1>
+      <p>NEWS</p>
+      <ul>
+        <li v-for="(item,index) in newstext" :key="index" @click="newsswitch(index)" >
+          <h1 :class="{active: index === num}">{{item.text}}</h1>
+        </li>
+      </ul>
     </div>
     <ul class="footer">
       <li class="footer_nav">
@@ -61,7 +67,7 @@ export default {
         { id: 3, src: require("@/assets/img/banner03.ebe4ca0.png") },
         { id: 4, src: require("@/assets/img/banner3.8b3c2ba.jpg") }
       ],
-      swiperOption: {
+    swiperOption: {
         on:{
           click:function(){
             vm.btn(this.realIndex)
@@ -89,13 +95,19 @@ export default {
       },
       navimgList: [
         { id: 1, src: require("@/assets/img/jk.png"),path:'jkgl' },
-        { id: 2, src: require("@/assets/img/jd.png"),path:'jdgl' },
+        { id: 2, src: require("@/assets/img/tz.png"),path:'jdgl' },
         { id: 3, src: require("@/assets/img/gj.png"),path:'gjly' },
-        { id: 4, src: require("@/assets/img/dz.png"),path:'dzsw' },
-        { id: 5, src: require("@/assets/img/tz.png"),path:'tzgl' },
-        { id: 6, src: require("@/assets/img/fl.png"),path:'flgw' }
+        // { id: 4, src: require("@/assets/img/dz.png"),path:'dzsw' },
+        // { id: 5, src: require("@/assets/img/tz.png"),path:'tzgl' },
+        // { id: 6, src: require("@/assets/img/fl.png"),path:'flgw' }
 
-      ]
+      ],
+      newstext:[
+        {text:'集团新闻'},
+        {text:'媒体报道'},
+        {text:'热点专题'}
+      ],
+      num:0
     };
   },
   computed: {
@@ -106,6 +118,10 @@ export default {
   methods: {
     btn (id){
       console.log(id)
+    },
+    newsswitch (index) {
+      console.log(index)
+      this.num = index
     }
   },
 };
@@ -119,7 +135,7 @@ export default {
   background-size 100% 100% 
 }
 .nav{
-  height 184px
+  height 100px
   ul{
     height 100%
     display flex
@@ -174,6 +190,7 @@ export default {
     width 100%
     background: url('../../../assets/img/news-bg.5d50278.png');
     background-repeat no-repeat
+    background-size 100% 100%
   }
 }
 .copyright{
@@ -192,7 +209,38 @@ export default {
     }
 }
 .news{
-  height 236px
-  margin-top 36px
+  // height 236px
+  margin-top 32px
+  >h1{
+    color #333
+    font-size 20px
+    text-align center
+    line-height 28px
+    letter-spacing .7px
+  }
+  >p{
+    color #2f2f2f
+    font-size 12px
+    text-align center
+    letter-spacing .2px
+  }
+  >ul{
+    display flex
+    width 100%
+    border 1px solid #e8e8e8
+    >li{
+      width 33.3%
+      margin 0 auto 
+      >h1{
+        font-size 16px
+        text-align center
+        padding: 16px 0 11px;
+        width 66px
+      }
+    }
+  }
+}
+.active{
+  border-bottom: 2px solid #1b5662;
 }
 </style>
