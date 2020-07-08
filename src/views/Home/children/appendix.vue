@@ -50,7 +50,6 @@
 <script>
   var vm = this
 export default {
-
   created(){
     vm = this
   },
