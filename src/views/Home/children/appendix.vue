@@ -126,7 +126,7 @@ export default {
   },
 };
 </script>
-<style lang="stylus">
+<style lang="stylus" scoped>
 .swiper-pagination-bullet-active {
   background-color: #fcfdf7
 }
