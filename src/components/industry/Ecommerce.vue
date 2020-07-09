@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 电子商务 -->
-    <div class="detail-wrap" style="margin-bottom: 48px;">
+    <div class="detail-wrap" style="margin-bottom: 48px;" v-if="this.$store.state.language">
       <p class="title">全方位便捷您的生活</p>
       <p class="auxiliary">AIXIN,that is convenient for your life</p>
       <p
@@ -13,6 +13,23 @@
         </li>
         <li style="padding-top: 16px;">
           <div>艾鑫电子商务坚持采用先进的网络技术与严谨的管理制度，为加速企业全面信息化不断努力。艾鑫电子商务正在以日新月异的速度迅速增长，艾鑫电子商务在成立短短两年的时间就拥有会员上万人。我们也一直积极推动中国电子商务的普及与发展，在国家倡导的互联网+等模式上上率先使用本地化政策，大量发展合作伙伴，以便于为各地用户提供本地化的技术和优质服务。</div>
+          <img src="../../assets/img/photo-19.26d5c74.png" alt class="illustration" />
+        </li>
+      </ul>
+    </div>
+<!--    英语-->
+    <div class="detail-wrap" style="margin-bottom: 48px;" v-else>
+      <p class="title">全方位便捷您的生活</p>
+      <p class="auxiliary">AIXIN,that is convenient for your life</p>
+      <p
+              class="detail-auxiliary"
+      >I believe everyone is familiar with the term o2o e-commerce. From the embryonic stage in 2014, after two years of explosive growth, to this year's survival of the fittest. O2o e-commerce industry in the gradual development, but also gradually affect people's living habits. Our life has been unable to be separated from o2o e-commerce. In this field, everything is still full of unlimited development possibilities.</p>
+      <ul class="detail-list">
+        <li>
+          <div>Aixin group has been committed to providing customers with more convenient services and higher quality products. Chengdu Aixin e-commerce Co., Ltd., established in 2013, is a high-tech private enterprise specializing in online and offline sales, with a team dedicated to providing consumers with high-quality goods and high-quality services.</div>
+        </li>
+        <li style="padding-top: 16px;">
+          <div>Aixin e-commerce adheres to the use of advanced network technology and rigorous management system to accelerate the enterprise's comprehensive informatization. Ai Xin e-commerce is growing rapidly with the rapid development of e-commerce, Ai Xin e-commerce has more than ten thousand members in just two years. We have been actively promoting the popularization and development of e-commerce in China, and pioneered the use of localization policy in the Internet plus mode advocated by the state, and developed a large number of partners to provide localized technology and quality services for users everywhere.</div>
           <img src="../../assets/img/photo-19.26d5c74.png" alt class="illustration" />
         </li>
       </ul>

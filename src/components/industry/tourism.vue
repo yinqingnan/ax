@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 国际旅游 -->
-    <div class="detail-wrap" style="margin-bottom: 48px;">
+    <div class="detail-wrap" style="margin-bottom: 48px;" v-if="this.$store.state.language">
       <p class="title">世界那么大，艾鑫陪你去看看</p>
       <p class="auxiliary">The world is so big,Ai Xin accompanies you to look around</p>
       <p class="detail-auxiliary"
@@ -15,6 +15,24 @@
         alt
         class="illustration"
         style="padding-top: 16px;"
+      />
+    </div>
+
+<!--    英语-->
+    <div class="detail-wrap" style="margin-bottom: 48px;" v-else>
+      <p class="title">世界那么大，艾鑫陪你去看看</p>
+      <p class="auxiliary">The world is so big,Ai Xin accompanies you to look around</p>
+      <p class="detail-auxiliary"
+      >Travel is to be able to leave the world in your heart, let you reach the best state. There are 9000 places in the world, Ai Xin can accompany you to go for a walk - Chengdu Aixin International Tourism Service Co., Ltd. was established on January 7, 2016. Since the establishment of the company, the company has been exploring and developing a professional tourism service road combining quality and enjoyment. Taking "quality", "standardization" and "humanization" as the development goals, we are determined to pursue excellence and excellence on the basis of meeting the needs of customers, and constantly increase the continuous investment in human resources and technology, so as to develop into a highly qualified team with well-trained, experienced, enthusiastic service and enthusiastic love for Aixin. With the travel agencies, hotels, motorcades across the country to establish good cooperative relations and business contacts, so that all kinds of tourism products are more perfect, and strive to provide tourists with reliable and thoughtful, quality and all-round tourism services.</p>
+      <p
+              class="detail-auxiliary"
+              style="margin-top: 16px;"
+      >With Ai Xin's company along the way, every place you go will have a different mood. Safety, high experience and unique memory are the best way for Ai Xin to give back to you.</p>
+      <img
+              src="../../assets/img/photo-18.39a0f88.png"
+              alt
+              class="illustration"
+              style="padding-top: 16px;"
       />
     </div>
   </div>

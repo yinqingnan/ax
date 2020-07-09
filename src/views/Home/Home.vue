@@ -5,8 +5,8 @@
         <img src="@/assets/img/logo.png" alt />
       </div>
       <div class="header_right">
-        <h1>{{pathname}}</h1>
-        <p>/</p>
+<!--        <h1>{{pathname}}</h1>-->
+<!--        <p>/</p>-->
         <div class="zhedie" @click="showPopup">
           <span class="iconfont icon-zhedie zhedie"></span>
         </div>
@@ -85,7 +85,7 @@ export default {
         }else{
           // this.list[this.list.length-1].name = '中文'
           this. list= [
-            
+
               { name: "AIXN group" },
               { name: "News" },
               { name: "Group industry" },
@@ -94,7 +94,7 @@ export default {
               { name: "中文" }
           ]
         }
-     
+
       }
          if(name == '艾鑫集团' || name == "AIXN group"){
           this.pathname = name;

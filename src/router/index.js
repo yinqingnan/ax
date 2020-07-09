@@ -15,7 +15,7 @@ Vue.use(VueRouter);
       name: 'home',
       component: ()=> import('../views/Home/Home.vue'),
       children :[
-        // 
+        //
         {path:'/index/appendix',name:'Appendix',component:()=> import('../views/Home/children/appendix.vue')},
         {path:'/index/news',name:'news',component:()=> import('../views/Home/children/news.vue')},
         {path:'/index/joinaixin',name:'joinaixin',component:()=> import('../views/Home/children/joinaixin.vue')},
@@ -46,13 +46,13 @@ Vue.use(VueRouter);
 
       ]
     },
- 
-]
+
+];
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
-})
+}) ;
 
 export default router

@@ -50,7 +50,6 @@ export default {
       this.num = i;
       this.show = false;
       this.$refs.btn.style.transform = "rotate(0deg)";
-      console.log(i);
       switch (i) {
         case 0:
           this.text = "集团介绍";

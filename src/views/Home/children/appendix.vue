@@ -43,7 +43,7 @@
             </p>
         Group culture
         </div>
-       
+
         <span class="iconfont icon-xiangyou"></span>
       </li>
       <li class="footer_nav" @click="listbtn('全球发布')">
@@ -55,7 +55,7 @@
             <span class="iconfont icon-ditudingwei" style="font-size: 22px;margin-right: 1px;margin-left: 5px;"></span>
             Global launch
         </div>
-      
+
         <span class="iconfont icon-xiangyou"></span>
       </li>
       <li class="news-center_title">
@@ -63,8 +63,8 @@
       </li>
       <li style="margin-top: 6px; padding-top: 15px;" class="copyright">
         <ul class="copyli" >
-            <li data-v-ff85e4e0="">Copyright© 2016-2017</li> 
-            <li data-v-ff85e4e0="">成都艾鑫忠鸿生物科技有限公司&nbsp;&nbsp;版权所有</li> 
+            <li data-v-ff85e4e0="">Copyright© 2016-2017</li>
+            <li data-v-ff85e4e0="">成都艾鑫忠鸿生物科技有限公司&nbsp;&nbsp;版权所有</li>
             <li data-v-ff85e4e0="">蜀ICP备15025853号</li>
           </ul>
       </li>
@@ -142,7 +142,13 @@ export default {
   },
   methods: {
     btn (id){
-      console.log(id)
+      // console.log(id)  ;
+      if(id === 0){
+        this.$router.push('/index/group/introduction')
+      }
+      // else if(id === 3) {
+      //   this.$router.push('/index/news')
+      // }
     },
     newsswitch (index) {
       this.num = index
@@ -163,7 +169,7 @@ export default {
             this.$router.push('/index/news')
 
           break;
-          
+
         default:
           break;
       }
@@ -176,7 +182,7 @@ export default {
           break;
         case "全球发布":
           console.log('全球发布')
-          
+
           this.$router.push('/index/globallydistributed')
 
           break;
@@ -196,7 +202,7 @@ export default {
 }
 .imgbox{
   display inline-block
-  background-size 100% 100% 
+  background-size 100% 100%
 }
 .nav{
   height 100px
@@ -221,7 +227,7 @@ export default {
     display: flex;
     justify-content: space-between;
     div{
-      width 50%
+      width 60%
       color: #fff;
       font-size: 20px;
       letter-spacing: .7px;
@@ -280,12 +286,12 @@ export default {
     text-align center
     line-height 28px
     letter-spacing .7px
-    
+
   }
   >div{
     text-align center
     padding 28px 0 48px
-    
+
     >h2{
       display inline-block
       padding 7px 26px
@@ -294,7 +300,7 @@ export default {
       font-size 12px
       line-height 17px
     }
-  
+
   }
   >p{
     color #2f2f2f
@@ -306,7 +312,7 @@ export default {
     display flex
     width 100%
     border-bottom 1px solid #e8e8e8
-    
+
     >li{
       position: relative;
       height: 45px;
