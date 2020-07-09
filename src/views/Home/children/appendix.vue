@@ -8,33 +8,52 @@
     </swiper>
     <div class="nav">
       <ul>
-        <li v-for="(item,index) in navimgList" :key="index" :style="{backgroundImage: 'url(' + item.src + ')', backgroundSize:'100% 100%'}" v-show="index < 2" ></li>
+        <li v-for="(item,index) in navimgList" :key="index" :style="{backgroundImage: 'url(' + item.src + ')', backgroundSize:'100% 100%'}" v-show="index < 3"  @click="mainnav(index)"></li>
       </ul>
     </div>
     <div class="news">
       <h1>新闻中心</h1>
       <p>NEWS</p>
-      <ul>
+      <ul v-if="this.$store.state.language">
         <li v-for="(item,index) in newstext" :key="index" @click="newsswitch(index)" >
           <h1 :class="{active: index === num}">{{item.text}}</h1>
         </li>
       </ul>
+      <ul v-else>
+        <li v-for="(item,index) in newstext1" :key="index" @click="newsswitch(index)" >
+          <h1 :class="{active: index === num}">{{item.text}}</h1>
+        </li>
+      </ul>
+      <div>
+        <h2 v-if="this.$store.state.language" @click="more">查看更多</h2>
+        <h2 v-else @click="more">More</h2>
+      </div>
     </div>
     <ul class="footer">
-      <li class="footer_nav">
-        <div>
+      <li class="footer_nav" @click="listbtn('集团文化')">
+        <div v-if="this.$store.state.language">
             <p>
               <span class="iconfont icon-wenhua"></span>
             </p>
         集团文化
         </div>
+        <div v-else>
+            <p>
+              <span class="iconfont icon-wenhua"></span>
+            </p>
+        Group culture
+        </div>
        
         <span class="iconfont icon-xiangyou"></span>
       </li>
-      <li class="footer_nav">
-        <div>
+      <li class="footer_nav" @click="listbtn('全球发布')">
+        <div v-if="this.$store.state.language">
             <span class="iconfont icon-ditudingwei" style="font-size: 22px;margin-right: 1px;margin-left: 5px;"></span>
             全球发布
+        </div>
+        <div  v-else>
+            <span class="iconfont icon-ditudingwei" style="font-size: 22px;margin-right: 1px;margin-left: 5px;"></span>
+            Global launch
         </div>
       
         <span class="iconfont icon-xiangyou"></span>
@@ -61,6 +80,7 @@ export default {
   },
   data() {
     return {
+      language:this.$store.state.language,
       imglist: [
         { id: 1, src: require("@/assets/img/banner01.75144d6.png") },
         { id: 2, src: require("@/assets/img/banner02.11c435c.png") },
@@ -95,7 +115,7 @@ export default {
       },
       navimgList: [
         { id: 1, src: require("@/assets/img/jk.png"),path:'jkgl' },
-        { id: 2, src: require("@/assets/img/tz.png"),path:'jdgl' },
+        { id: 2, src: require("@/assets/img/gp.png"),path:'jdgl' },
         { id: 3, src: require("@/assets/img/gj.png"),path:'gjly' },
         // { id: 4, src: require("@/assets/img/dz.png"),path:'dzsw' },
         // { id: 5, src: require("@/assets/img/tz.png"),path:'tzgl' },
@@ -106,6 +126,11 @@ export default {
         {text:'集团新闻'},
         {text:'媒体报道'},
         {text:'热点专题'}
+      ],
+       newstext1:[
+        {text:'NEWS'},
+        {text:'REPORT'},
+        {text:'HOT'}
       ],
       num:0
     };
@@ -120,8 +145,47 @@ export default {
       console.log(id)
     },
     newsswitch (index) {
-      console.log(index)
       this.num = index
+    },
+    more () {
+      switch (this.num) {
+        case 0:
+            console.log('集团新闻')
+            this.$router.push('/index/news')
+          break;
+        case 1:
+            console.log('媒体报道')
+            this.$router.push('/index/news')
+
+          break;
+          case 2:
+            console.log('热点专题')
+            this.$router.push('/index/news')
+
+          break;
+          
+        default:
+          break;
+      }
+    },
+    listbtn (name) {
+      switch (name) {
+        case "集团文化":
+          console.log('集团文化')
+          this.$router.push('/index/group/companyculture')
+          break;
+        case "全球发布":
+          console.log('全球发布')
+          
+          this.$router.push('/index/globallydistributed')
+
+          break;
+        default:
+          break;
+      }
+    },
+    mainnav (i) {
+      console.log(i)
     }
   },
 };
@@ -157,7 +221,7 @@ export default {
     display: flex;
     justify-content: space-between;
     div{
-      width 40%
+      width 50%
       color: #fff;
       font-size: 20px;
       letter-spacing: .7px;
@@ -209,7 +273,6 @@ export default {
     }
 }
 .news{
-  // height 236px
   margin-top 32px
   >h1{
     color #333
@@ -217,6 +280,21 @@ export default {
     text-align center
     line-height 28px
     letter-spacing .7px
+    
+  }
+  >div{
+    text-align center
+    padding 28px 0 48px
+    
+    >h2{
+      display inline-block
+      padding 7px 26px
+      border 1px solid #979797
+      color #333
+      font-size 12px
+      line-height 17px
+    }
+  
   }
   >p{
     color #2f2f2f
@@ -227,15 +305,20 @@ export default {
   >ul{
     display flex
     width 100%
-    border 1px solid #e8e8e8
+    border-bottom 1px solid #e8e8e8
+    
     >li{
+      position: relative;
+      height: 45px;
       width 33.3%
-      margin 0 auto 
       >h1{
         font-size 16px
         text-align center
         padding: 16px 0 11px;
         width 66px
+        position absolute
+        left 50%
+        margin-left -33px
       }
     }
   }

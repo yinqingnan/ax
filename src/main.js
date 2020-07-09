@@ -8,13 +8,17 @@ import "./assets/fonts/iconfont.css"
 
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css';
+import Router from 'vue-router'
 
-import { Button } from 'vant';
-import 'vant/lib/button/style';
-Vue.use(Button)
 
 Vue.use(VueAwesomeSwiper)
 Vue.config.productionTip = false;
+
+
+const originalPush = Router.prototype.push
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 
 new Vue({
   router,
