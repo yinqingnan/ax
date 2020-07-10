@@ -69,6 +69,7 @@
           </ul>
       </li>
 
+
     </ul>
   </div>
 </template>
@@ -116,7 +117,7 @@ export default {
       navimgList: [
         { id: 1, src: require("@/assets/img/jk.png"),path:'jkgl' },
         { id: 2, src: require("@/assets/img/gp.png"),path:'jdgl' },
-        { id: 3, src: require("@/assets/img/gj.png"),path:'gjly' },
+        { id: 3, src: require("@/assets/img/jd.png"),path:'gjly' },
         // { id: 4, src: require("@/assets/img/dz.png"),path:'dzsw' },
         // { id: 5, src: require("@/assets/img/tz.png"),path:'tzgl' },
         // { id: 6, src: require("@/assets/img/fl.png"),path:'flgw' }
@@ -142,7 +143,7 @@ export default {
   },
   methods: {
     btn (id){
-      // console.log(id)  ;
+      console.log(id)  ;
       if(id === 0){
         this.$router.push('/index/group/introduction')
       }
@@ -177,12 +178,11 @@ export default {
     listbtn (name) {
       switch (name) {
         case "集团文化":
-          console.log('集团文化')
+          // console.log('集团文化')
           this.$router.push('/index/group/companyculture')
           break;
         case "全球发布":
-          console.log('全球发布')
-
+          // console.log('全球发布')
           this.$router.push('/index/globallydistributed')
 
           break;
@@ -192,6 +192,14 @@ export default {
     },
     mainnav (i) {
       console.log(i)
+      if(i == 0){
+        this.$router.push('/index/industry/healthy')
+      }else if(i==2){
+        this.$router.push('/index/group/companyculture')
+      }else{
+        this.$router.push('/index/shares')
+        
+      }
     }
   },
 };

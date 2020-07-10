@@ -9,8 +9,13 @@
       <div class="occupation">
         <p class="occupation-title" v-if="this.$store.state.language">职业分类</p>
         <p class="occupation-title" v-else>Occupational classification</p>
-        <ul class="tag-list">
+        <ul class="tag-list" v-if="this.$store.state.language">
           <li v-for="(item,index) in list" :key="index" class="tag" @click="btn(index)" >
+              <span :class="{active: index === num}">{{item.tag}}</span>
+          </li>
+        </ul>
+         <ul class="tag-list" v-else>
+          <li v-for="(item,index) in list1" :key="index" class="tag" @click="btn(index)" >
               <span :class="{active: index === num}">{{item.tag}}</span>
           </li>
         </ul>
@@ -115,6 +120,12 @@ export default {
                 {tag:'产品'},
                 {tag:'设计'},
                 {tag:'运营'},
+            ],
+            list1:[
+                {tag:'Technology'},
+                {tag:'Product'},
+                {tag:'Design'},
+                {tag:'Operate'},
             ]
         }
     },

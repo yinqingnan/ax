@@ -31,6 +31,7 @@ export default {
       // show:true,
       pathname: "",
       list: [
+        { name: "首页" },
         { name: "艾鑫集团" },
         { name: "新闻中心" },
         { name: "集团产业" },
@@ -49,10 +50,15 @@ export default {
     const that = this;
     document.addEventListener("click", e => {
       if (e.target.className != "modules") {
-        that.$refs.modules.style.right = "-252px";
+        
+        if(that.$refs.modules){
+          that.$refs.modules.style.right = "-252px";
+        }
       }
       if (e.target.className == "iconfont icon-zhedie zhedie") {
-        that.$refs.modules.style.right = 0;
+        if(that.$refs.modules){
+          that.$refs.modules.style.right = 0;
+        }
       }
     });
   },
@@ -69,12 +75,12 @@ export default {
       this.$refs.modules.style.right = "-252px";
     },
     Jump(name) {
-      console.log(name);
+      // console.log(name);
       if(name == "English" || name == '中文'){
         this.$store.commit('switch')
         if(this.$store.state.language){
-          // this.list[this.list.length-1].name = 'English'
           this.list = [
+              { name: "首页" },
               { name: "艾鑫集团" },
               { name: "新闻中心" },
               { name: "集团产业" },
@@ -83,9 +89,8 @@ export default {
               { name: "English" }
           ]
         }else{
-          // this.list[this.list.length-1].name = '中文'
           this. list= [
-
+              { name: "index" },
               { name: "AIXN group" },
               { name: "News" },
               { name: "Group industry" },
@@ -112,7 +117,9 @@ export default {
         else if(name == '联系我们' || name == "contact us"){
            this.pathname = name;
           this.$router.push("/index/contactus");
-        }
+        }else if(name == '首页' || name == 'index'){
+          this.$router.push("/index/appendix");
+        } 
 
     }
   }
@@ -187,7 +194,7 @@ export default {
   top: 0;
   height: 100%;
   width: 252px;
-  z-index: 10;
+  z-index: 999;
   right: -252px;
   background: url('../../assets/img/background.20f9dd4.png') no-repeat;
   background-size: 100% 100%;

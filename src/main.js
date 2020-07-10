@@ -10,11 +10,13 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css';
 import Router from 'vue-router'
 
+import axios from 'axios'
 import VideoPlayer from 'vue-video-player'
 import 'vue-video-player/src/custom-theme.css'
 import 'video.js/dist/video-js.css'
 Vue.use(VideoPlayer)
 
+Vue.prototype.$axios = axios
 
 Vue.use(VueAwesomeSwiper)
 Vue.config.productionTip = false;

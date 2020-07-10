@@ -36,12 +36,12 @@ export default {
       value1: 0,
       text: "集团介绍",
       option1: [
-        { text: "集团介绍", value: 0 },
-        { text: "董事长专区", value: 1 },
-        { text: "发展历程", value: 2 },
-        { text: "企业荣誉", value: 3 },
-        { text: "企业文化", value: 4 },
-        { text: "企业党建", value: 5 }
+        // { text: "集团介绍", value: 0 },
+        // { text: "董事长专区", value: 1 },
+        // { text: "发展历程", value: 2 },
+        // { text: "企业荣誉", value: 3 },
+        // { text: "企业文化", value: 4 },
+        // { text: "企业党建", value: 5 }
       ]
     };
   },
@@ -101,7 +101,123 @@ export default {
   watch: {
     isFollow(newVal) {
       console.log(newVal);
-      console.log(this.text)
+      console.log(this.text);
+      if (newVal) {
+        this.option1 = [
+          { text: "集团介绍", value: 0 },
+          { text: "董事长专区", value: 1 },
+          { text: "发展历程", value: 2 },
+          { text: "企业荣誉", value: 3 },
+          { text: "企业文化", value: 4 },
+          { text: "企业党建", value: 5 }
+        ];
+      if (this.text == "Group Introduction") {
+        console.log(2222222222)
+        this.text = "集团介绍";
+      } else if (this.text == "Chairman zone") {
+        this.text = "董事长专区";
+      } else if (this.text == "Developing process") {
+        this.text = "发展历程";
+      } else if (this.text == "Enterprise honor") {
+        this.text = "企业荣誉";
+      } else if (this.text == "Corporate culture") {
+        this.text = "企业文化";
+      } else if (this.text == "Enterprise Party Building") {
+        this.text = "企业党建";
+      }
+      } else {
+        this.option1 = [
+          { text: "Group Introduction", value: 0 },
+          { text: "Chairman zone", value: 1 },
+          { text: "Developing process", value: 2 },
+          { text: "Enterprise honor", value: 3 },
+          { text: "Corporate culture", value: 4 },
+          { text: "Enterprise Party Building", value: 5 }
+        ];
+        if (this.text == "集团介绍") {
+          console.log(1111111)
+        this.text = "Group Introduction";
+      } else if (this.text == "董事长专区") {
+        this.text = "Chairman zone";
+      } else if (this.text == "发展历程") {
+        this.text = "Developing process";
+      } else if (this.text == "企业荣誉") {
+        this.text = "Enterprise honor";
+      } else if (this.text == "企业文化") {
+        this.text = "Corporate culture";
+      } else if (this.text == "企业党建") {
+        this.text = "Enterprise Party Building";
+      }
+      }
+    },
+    $route: {
+      handler: function(val) {
+      if (this.$store.state.language) {
+        switch (val.name) {
+          case "Group Introduction":
+            this.text = "集团介绍";
+            break;
+          case "Chairman":
+            this.text = "董事长专区";
+            break;
+          case "course":
+            this.text = "发展历程";
+            break;
+          case "Enterprisehonor":
+            this.text = "企业荣誉";
+            break;
+          case "companyculture":
+            this.text = "企业文化";
+            break;
+          case "building":
+            this.text = "企业党建";
+            break;
+          default:
+            break;
+        }
+      } else {
+        switch (val.name) {
+          case "Introduction":
+            this.text = "Group Introduction";
+            break;
+          case "Chairman":
+            this.text = "Chairman zone";
+            break;
+          case "course":
+            this.text = "Developing process";
+            break;
+          case "Enterprisehonor":
+            this.text = "Enterprise honor";
+            break;
+          case "companyculture":
+            this.text = "Corporate culture";
+            break;
+          case "building":
+            this.text = "Enterprise Party Building";
+            break;
+          default:
+            break;
+        }
+      }
+      },
+      // 深度观察监听
+      deep: true
+    }
+  },
+  mounted() {
+    // console.log(this.text);
+    //  console.log(this.$route.name)
+    let name = this.$route.name
+    if (this.$store.state.language) {
+      
+      this.option1 = [
+        { text: "集团介绍", value: 0 },
+        { text: "董事长专区", value: 1 },
+        { text: "发展历程", value: 2 },
+        { text: "企业荣誉", value: 3 },
+        { text: "企业文化", value: 4 },
+        { text: "企业党建", value: 5 }
+      ];
       if (this.text === "Group Introduction") {
         this.text = "集团介绍";
       } else if (this.text === "Chairman zone") {
@@ -114,9 +230,48 @@ export default {
         this.text = "企业文化";
       } else if (this.text === "Enterprise Party Building") {
         this.text = "企业党建";
-      }else if(this.text === "集团介绍") {
-        this.text = "Group Introduction ";
-      }else if (this.text === "董事长专区") {
+      }
+      switch (name) {
+        case 'companyculture':
+          this.text= "企业文化"
+          this.num = 4
+          break;
+        case 'Introduction':
+          this.text= "集团介绍"
+          this.num = 0
+          break;
+        case 'Chairman':
+          this.text= "董事长专区"
+          this.num = 1
+          break;
+        case 'Enterprisehonor':
+          this.text= "企业荣誉"
+          this.num = 3
+          break;
+          case 'building':
+          this.text= "企业党建"
+          this.num = 5
+          break;
+          case 'course':
+          this.text= "发展历程"
+          this.num = 2
+          break;
+      
+        default:
+          break;
+      }
+    } else {
+      this.option1 = [
+        { text: "Group Introduction", value: 0 },
+        { text: "Chairman zone", value: 1 },
+        { text: "Developing process", value: 2 },
+        { text: "Enterprise honor", value: 3 },
+        { text: "Corporate culture", value: 4 },
+        { text: "Enterprise Party Building", value: 5 }
+      ];
+       if (this.text === "集团介绍") {
+        this.text = "Group Introduction";
+      } else if (this.text === "董事长专区") {
         this.text = "Chairman zone";
       } else if (this.text === "发展历程") {
         this.text = "Developing process";
@@ -127,105 +282,35 @@ export default {
       } else if (this.text === "企业党建") {
         this.text = "Enterprise Party Building";
       }
-      if (newVal) {
-        this.option1 = [
-          { text: "集团介绍", value: 0 },
-          { text: "董事长专区", value: 1 },
-          { text: "发展历程", value: 2 },
-          { text: "企业荣誉", value: 3 },
-          { text: "企业文化", value: 4 },
-          { text: "企业党建", value: 5 }
-        ];
-      } else {
-        this.option1 = [
-          { text: "Group Introduction", value: 0 },
-          { text: "Chairman zone", value: 1 },
-          { text: "Developing process", value: 2 },
-          { text: "Enterprise honor", value: 3 },
-          { text: "Corporate culture", value: 4 },
-          { text: "Enterprise Party Building", value: 5 }
-        ];
+      switch (name) {
+        case 'companyculture':
+          this.text= "Corporate culture"
+          this.num = 4
+          break;
+        case 'Introduction':
+          this.text= "Group Introduction"
+          this.num = 0
+          break;
+        case 'Chairman':
+          this.text= "Chairman zone"
+          this.num = 1
+          break;
+        case 'Enterprisehonor':
+          this.text= "Enterprise honor"
+          this.num = 3
+          break;
+          case 'building':
+          this.text= "Enterprise Party Building"
+          this.num = 5
+          break;
+          case 'course':
+          this.text= "Developing process"
+          this.num = 2
+          break;
+      
+        default:
+          break;
       }
-    },
-    $route: {
-      handler: function(val) {
-        console.log(this.$store.state.language);
-        if (this.$store.state.language) {
-          switch (val.name) {
-            case "Introduction":
-              this.text = "集团介绍";
-              break;
-            case "Chairman":
-              this.text = "董事长专区";
-              break;
-            case "course":
-              this.text = "发展历程";
-              break;
-            case "Enterprisehonor":
-              this.text = "企业荣誉";
-              break;
-            case "companyculture":
-              this.text = "企业文化";
-              break;
-            case "building":
-              this.text = "企业党建";
-              break;
-            default:
-              break;
-          }
-        } else {
-          switch (val.name) {
-            case "Introduction":
-              this.text = "Group Introduction";
-              break;
-            case "Chairman":
-              this.text = "Chairman zone";
-              break;
-            case "course":
-              this.text = "Developing process";
-              break;
-            case "Enterprisehonor":
-              this.text = "Enterprise honor";
-              break;
-            case "companyculture":
-              this.text = "Corporate culture";
-              break;
-            case "building":
-              this.text = "Enterprise Party Building";
-              break;
-            default:
-              break;
-          }
-        }
-      },
-      // 深度观察监听
-      deep: true
-    }
-  },
-  mounted() {
-    console.log(this.$route.name);
-
-    switch (this.$route.name) {
-      case "Introduction":
-        this.text = "集团介绍";
-        break;
-      case "Chairman":
-        this.text = "董事长专区";
-        break;
-      case "course":
-        this.text = "发展历程";
-        break;
-      case "Enterprisehonor":
-        this.text = "企业荣誉";
-        break;
-      case "companyculture":
-        this.text = "企业文化";
-        break;
-      case "building":
-        this.text = "企业党建";
-        break;
-      default:
-        break;
     }
   }
 };

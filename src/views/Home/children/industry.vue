@@ -25,7 +25,6 @@
       </ul>
     </div>
     <router-view></router-view>
-
   </div>
 </template>
 <script>
@@ -37,11 +36,11 @@ export default {
       value1: 0,
       text: "健康管理",
       option1: [
-        { text: "健康管理", value: 0 },
-        { text: "酒店管理", value: 1 },
-        { text: "国际旅游", value: 2 },
-        { text: "电子商务", value: 3 },
-        { text: "投资管理", value: 4 },
+        // { text: "健康管理", value: 0 },
+        // { text: "酒店管理", value: 1 },
+        // { text: "国际旅游", value: 2 },
+        // { text: "电子商务", value: 3 },
+        // { text: "投资管理", value: 4 },
       ]
     };
   },
@@ -79,6 +78,7 @@ export default {
           break;
       }
     },
+
     openlist() {
       this.show = !this.show;
       if (this.show) {
@@ -88,31 +88,17 @@ export default {
       }
     }
   },
-  computed: {
-    isFollow() {
-      return this.$store.state.language;
-    }
-  },
-  watch: {
-    isFollow(newVal) {
-      // console.log(newVal);
-      if (newVal) {
-        this.option1 = [
-          { text: "健康管理", value: 0 },
-          { text: "酒店管理", value: 1 },
-          { text: "国际旅游", value: 2 },
-          { text: "电子商务", value: 3 },
-          { text: "投资管理", value: 4 },
-        ];
-      } else {
-        this.option1 = [
-          { text: "Health management", value: 0 },
-          { text: "Hotel management", value: 1 },
-          { text: "International tourism", value: 2 },
-          { text: "Ecommerce", value: 3 },
-          { text: "Investment management", value: 4 },
-        ];
-      }
+  mounted() {
+    console.log(this.$store.state.language);
+    console.log(this.text);
+    if (this.$store.state.language) {
+      this.option1 = [
+        { text: "健康管理", value: 0 },
+        { text: "酒店管理", value: 1 },
+        { text: "国际旅游", value: 2 },
+        { text: "电子商务", value: 3 },
+        { text: "投资管理", value: 4 }
+      ];
       if (this.text === "Health management") {
         this.text = "健康管理";
       } else if (this.text === "Hotel management") {
@@ -123,9 +109,18 @@ export default {
         this.text = "电子商务";
       } else if (this.text === "Investment management") {
         this.text = "投资管理";
-      } else if(this.text === "健康管理") {
+      }
+    } else {
+      this.option1 = [
+        { text: "Health management", value: 0 },
+        { text: "Hotel management", value: 1 },
+        { text: "International tourism", value: 2 },
+        { text: "Ecommerce", value: 3 },
+        { text: "Investment management", value: 4 }
+      ];
+      if (this.text === "健康管理") {
         this.text = "Health management";
-      }else if (this.text === "酒店管理") {
+      } else if (this.text === "酒店管理") {
         this.text = "Hotel management";
       } else if (this.text === "国际旅游") {
         this.text = "International tourism";
@@ -134,10 +129,59 @@ export default {
       } else if (this.text === "投资管理") {
         this.text = "Investment management";
       }
+    }
+  },
+  computed: {
+    isFollow() {
+      return this.$store.state.language;
+    }
+  },
+  watch: {
+    isFollow(newVal) {
+      console.log(newVal);
+      // 菜单栏切换语言
+      if (newVal) {
+        this.option1 = [
+          { text: "健康管理", value: 0 },
+          { text: "酒店管理", value: 1 },
+          { text: "国际旅游", value: 2 },
+          { text: "电子商务", value: 3 },
+          { text: "投资管理", value: 4 }
+        ];
+        if (this.text === "Health management") {
+          this.text = "健康管理";
+        } else if (this.text === "Hotel management") {
+          this.text = "酒店管理";
+        } else if (this.text === "International tourism") {
+          this.text = "国际旅游";
+        } else if (this.text === "Ecommerce") {
+          this.text = "电子商务";
+        } else if (this.text === "Investment management") {
+          this.text = "投资管理";
+        }
+      } else {
+        this.option1 = [
+          { text: "Health management", value: 0 },
+          { text: "Hotel management", value: 1 },
+          { text: "International tourism", value: 2 },
+          { text: "Ecommerce", value: 3 },
+          { text: "Investment management", value: 4 }
+        ];
+        if (this.text === "健康管理") {
+          this.text = "Health management";
+        } else if (this.text === "酒店管理") {
+          this.text = "Hotel management";
+        } else if (this.text === "国际旅游") {
+          this.text = "International tourism";
+        } else if (this.text === "电子商务") {
+          this.text = "Ecommerce";
+        } else if (this.text === "投资管理") {
+          this.text = "Investment management";
+        }
+      }
     },
     $route: {
       handler: function(val) {
-        console.log(this.$store.state.language);
         if (this.$store.state.language) {
           switch (val.name) {
             case "healthy":

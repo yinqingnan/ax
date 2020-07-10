@@ -20,6 +20,7 @@ Vue.use(VueRouter);
         {path:'/index/news',name:'news',component:()=> import('../views/Home/children/news.vue')},
         {path:'/index/joinaixin',name:'joinaixin',component:()=> import('../views/Home/children/joinaixin.vue')},
         {path:'/index/contactus',name:'contactus',component:()=> import('../views/Home/children/contactus.vue')},
+        {path:'/index/shares',name:'shares',component:()=> import('../views/Home/children/shares.vue')},
         {path:'/index/globallydistributed',name:'globallydistributed',component:()=> import('../views/Home/children/globallydistributed.vue')},
 
         {path:'/index/group',name:'group',component:()=> import('../views/Home/children/group.vue'),
